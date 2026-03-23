@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>習慣ログ</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  background: #0c0f18;
+  color: #e8e6e1;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  padding-bottom: 40px;
+}
+header {
+  background: linear-gradient(160deg, #131824 0%, #0c0f18 100%);
+  border-bottom: 1px solid #1e2a3d;
+  padding: 24px 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.logo { font-size: 26px; font-weight: 700; letter-spacing: 0.05em; color: #60a5fa; }
+.subtitle { font-size: 12px; color: #4a5a70; margin-top: 4px; }
+.header-score { text-align: right; }
+.score-big { font-size: 42px; font-weight: 800; color: #60a5fa; line-height: 1; }
+.score-of { font-size: 18px; color: #4a5a70; margin-left: 4px; }
+nav {
+  display: flex;
+  gap: 4px;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+.nav-btn {
+  flex: 1;
+  padding: 10px 8px;
+  border: none;
+  background: transparent;
+  color: #4a5a70;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.nav-btn.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+main { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #4a5a70;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.habit-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  background: #131824;
+  border: 1px solid #1e2a3d;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  color: #7a8fa8;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+  font-family: inherit;
+  width: 100%;
+}
+.habit-card:hover { border-color: #2563eb; transform: translateY(-1px); }
+.habit-card.done { background: #0f1e35; border-color: #2563eb; color: #e8e6e1; }
+.card-check {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 6px;
+  background: #1e2a3d;
+  border: 1px solid #2a3a54;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #60a5fa;
+  font-weight: 700;
+}
+.habit-card.done .card-check { background: #1d3a6e; border-color: #3b82f6; }
+.today-summary {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: #0f1e35;
+  border: 1px solid #2563eb;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #60a5fa;
+  text-align: center;
+}
+.empty { color: #4a5a70; font-size: 13px; text-align: center; padding: 40px 0; }
+.month-group { margin-bottom: 28px; }
+.month-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #60a5fa;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1e2a3d;
+}
+.history-list { display: flex; flex-direction: column; gap: 8px; }
+.history-card {
+  background: #131824;
+  border: 1px solid #1e2a3d;
+  border-radius: 12px;
+  padding: 14px 16px 12px;
+}
+.history-card.today { border-color: #2563eb; }
+.history-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.history-date-block { display: flex; align-items: baseline; gap: 6px; }
+.history-day { font-size: 18px; font-weight: 800; color: #60a5fa; }
+.history-date { font-size: 13px; color: #4a5a70; }
+.today-badge {
+  margin-left: 6px;
+  font-size: 10px;
+  background: #2563eb;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 99px;
+  font-weight: 700;
+}
+.history-count-block { display: flex; align-items: baseline; gap: 2px; }
+.history-count-num { font-size: 26px; font-weight: 800; color: #e8e6e1; }
+.history-count-unit { font-size: 12px; color: #4a5a70; }
+.bar-bg { height: 3px; background: #1e2a3d; border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
+.history-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.history-tag {
+  font-size: 11px;
+  background: #1e2a3d;
+  color: #7a8fa8;
+  padding: 3px 8px;
+  border-radius: 99px;
+}
+.load-more-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #1e2a3d;
+  border-radius: 10px;
+  color: #4a5a70;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 4px;
+  transition: all 0.2s;
+}
+.load-more-btn:hover { border-color: #2563eb; color: #60a5fa; }
+.add-row { display: flex; gap: 8px; margin-bottom: 20px; }
+.add-row input {
+  flex: 1;
+  padding: 12px 14px;
+  background: #131824;
+  border: 1px solid #1e2a3d;
+  border-radius: 10px;
+  color: #e8e6e1;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+.add-row input:focus { border-color: #2563eb; }
+.add-btn {
+  padding: 12px 18px;
+  background: #2563eb;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.edit-list { display: flex; flex-direction: column; gap: 8px; }
+.edit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #131824;
+  border: 1px solid #1e2a3d;
+  border-radius: 10px;
+}
+.edit-num { font-size: 12px; color: #4a5a70; width: 20px; text-align: center; }
+.edit-text { flex: 1; font-size: 14px; color: #e8e6e1; }
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #4a5a70;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-family: inherit;
+}
+.delete-btn:hover { color: #f87171; }
+.view { display: none; }
+.view.active { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="logo">習慣ログ</div>
+      <div class="subtitle" id="subtitle"></div>
+    </div>
+    <div class="header-score">
+      <span class="score-big" id="score-big">0</span>
+      <span class="score-of" id="score-of">/ 0</span>
+    </div>
+  </div>
+  <nav>
+    <button class="nav-btn active" onclick="switchView('today')">今日</button>
+    <button class="nav-btn" onclick="switchView('history')">履歴</button>
+    <button class="nav-btn" onclick="switchView('edit')">習慣を編集</button>
+  </nav>
+</header>
+
+<main>
+  <!-- TODAY -->
+  <div id="view-today" class="view active">
+    <div class="section-label">今日やったことを選択</div>
+    <div class="grid" id="habit-grid"></div>
+    <div class="empty" id="today-empty" style="display:none">習慣がまだありません。「習慣を編集」から追加してください。</div>
+    <div class="today-summary" id="today-summary" style="display:none"></div>
+  </div>
+
+  <!-- HISTORY -->
+  <div id="view-history" class="view">
+    <div id="history-container"></div>
+    <button class="load-more-btn" id="load-more-btn" onclick="loadMore()">さらに30日前を表示 ↓</button>
+  </div>
+
+  <!-- EDIT -->
+  <div id="view-edit" class="view">
+    <div class="section-label">習慣リストを編集</div>
+    <div class="add-row">
+      <input type="text" id="new-habit-input" placeholder="新しい習慣を入力..." onkeydown="if(event.key==='Enter')addHabit()">
+      <button class="add-btn" onclick="addHabit()">追加</button>
+    </div>
+    <div class="edit-list" id="edit-list"></div>
+    <div class="empty" id="edit-empty" style="display:none">習慣がありません。上から追加してください。</div>
+  </div>
+</main>
+
+<script>
+const DAYS_JA = ["日","月","火","水","木","金","土"];
+const DEFAULT_HABITS = ["朝の運動","読書","瞑想","日記を書く","水を2L飲む","ストレッチ","英語の勉強","早起き (7時前)","SNSを1時間以内に抑える","感謝を3つ書く"];
+
+let habits = JSON.parse(localStorage.getItem('habits') || 'null') || DEFAULT_HABITS;
+let records = JSON.parse(localStorage.getItem('records') || '{}');
+let historyDays = 30;
+let currentView = 'today';
+
+function toDateKey(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth()+1).padStart(2,'0');
+  const d = String(date.getDate()).padStart(2,'0');
+  return `${y}-${m}-${d}`;
+}
+
+function getTodayKey() { return toDateKey(new Date()); }
+
+function save() {
+  localStorage.setItem('habits', JSON.stringify(habits));
+  localStorage.setItem('records', JSON.stringify(records));
+}
+
+function getPastDays(count) {
+  const days = [];
+  for (let i = 0; i < count; i++) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    days.push(d);
+  }
+  return days;
+}
+
+function groupByMonth(dates) {
+  const groups = [];
+  let current = null;
+  for (const date of dates) {
+    const label = `${date.getFullYear()}年${date.getMonth()+1}月`;
+    if (!current || current.label !== label) {
+      current = { label, dates: [] };
+      groups.push(current);
+    }
+    current.dates.push(date);
+  }
+  return groups;
+}
+
+function getDoneCount(dateKey) {
+  const done = new Set(records[dateKey] || []);
+  return habits.filter(h => done.has(h)).length;
+}
+
+function switchView(v) {
+  currentView = v;
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-' + v).classList.add('active');
+  const btns = document.querySelectorAll('.nav-btn');
+  const idx = ['today','history','edit'].indexOf(v);
+  if (idx >= 0) btns[idx].classList.add('active');
+  if (v === 'history') renderHistory();
+  if (v === 'edit') renderEdit();
+  if (v === 'today') renderToday();
+}
+
+function renderHeader() {
+  const todayKey = getTodayKey();
+  const todayDone = new Set(records[todayKey] || []);
+  document.getElementById('score-big').textContent = todayDone.size;
+  document.getElementById('score-of').textContent = '/ ' + habits.length;
+  const now = new Date();
+  document.getElementById('subtitle').textContent = now.toLocaleDateString('ja-JP', {year:'numeric',month:'long',day:'numeric',weekday:'short'});
+}
+
+function renderToday() {
+  const todayKey = getTodayKey();
+  const todayDone = new Set(records[todayKey] || []);
+  const grid = document.getElementById('habit-grid');
+  grid.innerHTML = '';
+  if (habits.length === 0) {
+    document.getElementById('today-empty').style.display = 'block';
+  } else {
+    document.getElementById('today-empty').style.display = 'none';
+    habits.forEach(habit => {
+      const done = todayDone.has(habit);
+      const btn = document.createElement('button');
+      btn.className = 'habit-card' + (done ? ' done' : '');
+      btn.innerHTML = `<span class="card-check">${done ? '✓' : ''}</span><span>${habit}</span>`;
+      btn.onclick = () => toggleHabit(habit);
+      grid.appendChild(btn);
+    });
+  }
+  const summary = document.getElementById('today-summary');
+  if (todayDone.size > 0) {
+    summary.style.display = 'block';
+    summary.innerHTML = `今日は <strong>${todayDone.size}個</strong> の習慣を達成 🎉`;
+  } else {
+    summary.style.display = 'none';
+  }
+  renderHeader();
+}
+
+function toggleHabit(habit) {
+  const todayKey = getTodayKey();
+  const daySet = new Set(records[todayKey] || []);
+  if (daySet.has(habit)) daySet.delete(habit);
+  else daySet.add(habit);
+  records[todayKey] = Array.from(daySet);
+  save();
+  renderToday();
+}
+
+function renderHistory() {
+  const todayKey = getTodayKey();
+  const container = document.getElementById('history-container');
+  container.innerHTML = '';
+  const groups = groupByMonth(getPastDays(historyDays));
+  groups.forEach(group => {
+    const groupEl = document.createElement('div');
+    groupEl.className = 'month-group';
+    groupEl.innerHTML = `<div class="month-label">${group.label}</div>`;
+    const listEl = document.createElement('div');
+    listEl.className = 'history-list';
+    group.dates.forEach(date => {
+      const key = toDateKey(date);
+      const count = getDoneCount(key);
+      const total = habits.length;
+      const pct = total > 0 ? (count / total) * 100 : 0;
+      const isToday = key === todayKey;
+      const dayDone = new Set(records[key] || []);
+      const barColor = pct >= 80 ? '#4ade80' : pct >= 40 ? '#60a5fa' : pct > 0 ? '#93c5fd' : 'transparent';
+      const doneTags = habits.filter(h => dayDone.has(h)).map(h => `<span class="history-tag">${h}</span>`).join('');
+      const card = document.createElement('div');
+      card.className = 'history-card' + (isToday ? ' today' : '');
+      card.innerHTML = `
+        <div class="history-top">
+          <div class="history-date-block">
+            <span class="history-day">${DAYS_JA[date.getDay()]}</span>
+            <span class="history-date">${date.getMonth()+1}/${date.getDate()}${isToday ? '<span class="today-badge">今日</span>' : ''}</span>
+          </div>
+          <div class="history-count-block">
+            <span class="history-count-num">${count}</span>
+            <span class="history-count-unit">個</span>
+          </div>
+        </div>
+        ${total > 0 ? `<div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>` : ''}
+        ${count > 0 ? `<div class="history-tags">${doneTags}</div>` : ''}
+      `;
+      listEl.appendChild(card);
+    });
+    groupEl.appendChild(listEl);
+    container.appendChild(groupEl);
+  });
+}
+
+function loadMore() {
+  historyDays += 30;
+  renderHistory();
+}
+
+function renderEdit() {
+  const list = document.getElementById('edit-list');
+  list.innerHTML = '';
+  document.getElementById('edit-empty').style.display = habits.length === 0 ? 'block' : 'none';
+  habits.forEach((h, i) => {
+    const item = document.createElement('div');
+    item.className = 'edit-item';
+    item.innerHTML = `<span class="edit-num">${i+1}</span><span class="edit-text">${h}</span><button class="delete-btn" onclick="removeHabit('${h.replace(/'/g,"\\'")}')">✕</button>`;
+    list.appendChild(item);
+  });
+}
+
+function addHabit() {
+  const input = document.getElementById('new-habit-input');
+  const t = input.value.trim();
+  if (t && !habits.includes(t)) {
+    habits.push(t);
+    save();
+    input.value = '';
+    renderEdit();
+    renderHeader();
+  }
+}
+
+function removeHabit(h) {
+  habits = habits.filter(x => x !== h);
+  save();
+  renderEdit();
+  renderHeader();
+}
+
+// Init
+renderHeader();
+renderToday();
+</script>
+</body>
+</html>
