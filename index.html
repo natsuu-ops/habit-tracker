@@ -14,72 +14,43 @@ body {
   padding-bottom: 60px;
 }
 
-/* ========== PASSWORD SCREEN ========== */
+/* ===== PASSWORD ===== */
 #password-screen {
-  position: fixed; inset: 0;
-  background: #f5f0e8;
+  position: fixed; inset: 0; background: #f5f0e8;
   display: flex; align-items: center; justify-content: center;
-  z-index: 100;
-  padding: 24px;
+  z-index: 100; padding: 24px;
 }
 .pw-box {
-  background: #fff;
-  border: 1px solid #e0d5c5;
-  border-radius: 20px;
-  padding: 40px 32px;
-  max-width: 360px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(100,70,30,0.08);
+  background: #fff; border: 1px solid #e0d5c5; border-radius: 20px;
+  padding: 40px 32px; max-width: 360px; width: 100%;
+  text-align: center; box-shadow: 0 4px 24px rgba(100,70,30,0.08);
 }
-.pw-logo { font-size: 28px; font-weight: 800; color: #8b6f47; letter-spacing: 0.05em; margin-bottom: 8px; }
+.pw-logo { font-size: 28px; font-weight: 800; color: #8b6f47; margin-bottom: 8px; }
 .pw-sub { font-size: 13px; color: #a0917e; margin-bottom: 28px; }
 .pw-input {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1.5px solid #e0d5c5;
-  border-radius: 12px;
-  font-size: 16px;
-  font-family: inherit;
-  background: #faf7f2;
-  color: #3a2e22;
-  outline: none;
-  text-align: center;
-  letter-spacing: 0.2em;
-  margin-bottom: 12px;
+  width: 100%; padding: 14px 16px; border: 1.5px solid #e0d5c5;
+  border-radius: 12px; font-size: 16px; font-family: inherit;
+  background: #faf7f2; color: #3a2e22; outline: none;
+  text-align: center; letter-spacing: 0.2em; margin-bottom: 12px;
 }
 .pw-input:focus { border-color: #8b6f47; }
 .pw-btn {
-  width: 100%;
-  padding: 14px;
-  background: #8b6f47;
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
+  width: 100%; padding: 14px; background: #8b6f47; border: none;
+  border-radius: 12px; color: #fff; font-size: 15px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
 }
 .pw-btn:hover { background: #7a5f3a; }
 .pw-error { font-size: 12px; color: #c0392b; margin-top: 8px; min-height: 18px; }
 
-/* ========== HEADER ========== */
+/* ===== HEADER ===== */
 header {
-  background: #fff;
-  border-bottom: 1px solid #e0d5c5;
-  padding: 20px 20px 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  background: #fff; border-bottom: 1px solid #e0d5c5;
+  padding: 20px 20px 0; position: sticky; top: 0; z-index: 10;
   box-shadow: 0 1px 8px rgba(100,70,30,0.06);
 }
 .header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 600px;
-  margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  max-width: 600px; margin: 0 auto;
 }
 .logo { font-size: 24px; font-weight: 800; letter-spacing: 0.05em; color: #8b6f47; }
 .subtitle { font-size: 12px; color: #a0917e; margin-top: 4px; }
@@ -88,119 +59,134 @@ header {
 .score-of { font-size: 16px; color: #a0917e; margin-left: 3px; }
 nav { display: flex; gap: 4px; max-width: 600px; margin: 16px auto 0; }
 .nav-btn {
-  flex: 1; padding: 10px 6px;
-  border: none; background: transparent;
-  color: #a0917e; font-size: 13px; font-weight: 600;
-  cursor: pointer; border-bottom: 2px solid transparent;
-  transition: all 0.2s; font-family: inherit;
+  flex: 1; padding: 10px 6px; border: none; background: transparent;
+  color: #a0917e; font-size: 13px; font-weight: 600; cursor: pointer;
+  border-bottom: 2px solid transparent; transition: all 0.2s; font-family: inherit;
 }
 .nav-btn.active { color: #8b6f47; border-bottom-color: #8b6f47; }
 
-/* ========== MAIN ========== */
+/* ===== MAIN ===== */
 main { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
 .section-label {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.12em; color: #a0917e;
-  text-transform: uppercase; margin-bottom: 16px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: #a0917e; text-transform: uppercase; margin-bottom: 16px;
 }
 
-/* ========== TODAY ========== */
+/* ===== TODAY ===== */
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .habit-card {
-  display: flex; align-items: center; gap: 10px;
-  padding: 14px; background: #fff;
-  border: 1.5px solid #e0d5c5; border-radius: 14px;
-  cursor: pointer; text-align: left;
-  color: #a0917e; font-size: 13px; font-weight: 500;
-  transition: all 0.15s; font-family: inherit; width: 100%;
+  display: flex; align-items: center; gap: 10px; padding: 14px;
+  background: #fff; border: 1.5px solid #e0d5c5; border-radius: 14px;
+  cursor: pointer; text-align: left; color: #a0917e; font-size: 13px;
+  font-weight: 500; transition: all 0.15s; font-family: inherit; width: 100%;
 }
 .habit-card:hover { border-color: #8b6f47; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(100,70,30,0.1); }
 .habit-card.done { background: #fdf6ec; border-color: #c9a96e; color: #3a2e22; }
 .card-check {
-  width: 22px; height: 22px; min-width: 22px;
-  border-radius: 6px; background: #f5f0e8;
-  border: 1.5px solid #d5c8b5;
+  width: 22px; height: 22px; min-width: 22px; border-radius: 6px;
+  background: #f5f0e8; border: 1.5px solid #d5c8b5;
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; color: #8b6f47; font-weight: 800;
 }
 .habit-card.done .card-check { background: #c9a96e; border-color: #c9a96e; color: #fff; }
 .today-summary {
-  margin-top: 20px; padding: 16px 20px;
-  background: #fdf6ec; border: 1.5px solid #c9a96e;
-  border-radius: 14px; font-size: 14px; color: #8b6f47; text-align: center;
+  margin-top: 20px; padding: 16px 20px; background: #fdf6ec;
+  border: 1.5px solid #c9a96e; border-radius: 14px;
+  font-size: 14px; color: #8b6f47; text-align: center;
 }
 
-/* ========== MEMO ========== */
-.memo-section {
-  margin-top: 20px;
-}
+/* ===== MEMO ===== */
+.memo-section { margin-top: 20px; }
 .memo-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #a0917e; text-transform: uppercase; margin-bottom: 8px; }
 .memo-textarea {
-  width: 100%; min-height: 80px;
-  padding: 12px 14px;
-  background: #fff; border: 1.5px solid #e0d5c5;
-  border-radius: 12px; font-size: 14px;
-  font-family: inherit; color: #3a2e22;
+  width: 100%; min-height: 80px; padding: 12px 14px;
+  background: #fff; border: 1.5px solid #e0d5c5; border-radius: 12px;
+  font-size: 14px; font-family: inherit; color: #3a2e22;
   resize: vertical; outline: none; line-height: 1.6;
 }
 .memo-textarea:focus { border-color: #8b6f47; }
 .memo-saved { font-size: 11px; color: #a0917e; margin-top: 6px; text-align: right; min-height: 16px; }
 
-/* ========== HISTORY ========== */
+/* ===== HISTORY ===== */
 .month-group { margin-bottom: 28px; }
 .month-label {
-  font-size: 12px; font-weight: 700; color: #8b6f47;
-  letter-spacing: 0.08em; margin-bottom: 10px;
-  padding-bottom: 6px; border-bottom: 1px solid #e0d5c5;
+  font-size: 12px; font-weight: 700; color: #8b6f47; letter-spacing: 0.08em;
+  margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e0d5c5;
 }
 .history-list { display: flex; flex-direction: column; gap: 8px; }
 .history-card {
   background: #fff; border: 1.5px solid #e0d5c5;
-  border-radius: 14px; padding: 14px 16px 12px;
+  border-radius: 14px; overflow: hidden;
 }
 .history-card.today { border-color: #c9a96e; }
-.history-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.history-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 16px 12px; cursor: pointer; user-select: none;
+}
+.history-card-header:active { background: #faf7f2; }
 .history-date-block { display: flex; align-items: baseline; gap: 6px; }
 .history-day { font-size: 18px; font-weight: 800; color: #8b6f47; }
 .history-date { font-size: 13px; color: #a0917e; }
 .today-badge {
-  margin-left: 6px; font-size: 10px;
-  background: #8b6f47; color: #fff;
-  padding: 2px 7px; border-radius: 99px; font-weight: 700;
+  margin-left: 6px; font-size: 10px; background: #8b6f47;
+  color: #fff; padding: 2px 7px; border-radius: 99px; font-weight: 700;
 }
+.history-right { display: flex; align-items: center; gap: 10px; }
 .history-count-block { display: flex; align-items: baseline; gap: 2px; }
 .history-count-num { font-size: 26px; font-weight: 800; color: #3a2e22; }
 .history-count-unit { font-size: 12px; color: #a0917e; }
-.bar-bg { height: 3px; background: #ede5d8; border-radius: 99px; overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
-.history-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-.history-tag {
-  font-size: 11px; background: #f5f0e8;
-  color: #8b6f47; padding: 3px 9px; border-radius: 99px;
-  border: 1px solid #e0d5c5;
+.expand-arrow { font-size: 12px; color: #c9b89e; transition: transform 0.2s; }
+.expand-arrow.open { transform: rotate(180deg); }
+
+.history-body { display: none; border-top: 1px solid #ede5d8; }
+.history-body.open { display: block; }
+.bar-bg { height: 3px; background: #ede5d8; }
+.bar-fill { height: 100%; transition: width 0.4s ease; }
+
+/* 履歴内の習慣チェックリスト */
+.history-habit-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 6px; }
+.history-habit-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 10px;
+  cursor: pointer; transition: background 0.1s;
+  border: 1.5px solid transparent;
 }
-.history-memo {
-  margin-top: 8px; padding: 8px 12px;
-  background: #faf7f2; border-radius: 8px;
+.history-habit-item:hover { background: #faf7f2; }
+.history-habit-item.done { background: #fdf6ec; border-color: #e8d5b0; }
+.history-habit-item .h-check {
+  width: 20px; height: 20px; min-width: 20px; border-radius: 5px;
+  background: #f5f0e8; border: 1.5px solid #d5c8b5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #8b6f47; font-weight: 800;
+}
+.history-habit-item.done .h-check { background: #c9a96e; border-color: #c9a96e; color: #fff; }
+.history-habit-item .h-name { font-size: 13px; color: #3a2e22; }
+.history-habit-item.retired .h-name { color: #c9b89e; }
+.retired-tag {
+  font-size: 10px; background: #f0ebe2; color: #a0917e;
+  padding: 1px 6px; border-radius: 99px; margin-left: 4px;
+}
+
+.history-memo-area { padding: 0 16px 12px; }
+.history-memo-box {
+  padding: 8px 12px; background: #faf7f2; border-radius: 8px;
   font-size: 12px; color: #7a6a58; line-height: 1.5;
-  border-left: 3px solid #c9a96e;
+  border-left: 3px solid #c9a96e; white-space: pre-wrap;
 }
 .load-more-btn {
-  display: block; width: 100%; padding: 14px;
-  background: transparent; border: 1.5px solid #e0d5c5;
-  border-radius: 12px; color: #a0917e; font-size: 13px;
-  font-weight: 600; cursor: pointer; font-family: inherit;
+  display: block; width: 100%; padding: 14px; background: transparent;
+  border: 1.5px solid #e0d5c5; border-radius: 12px; color: #a0917e;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
   margin-top: 4px; transition: all 0.2s;
 }
 .load-more-btn:hover { border-color: #8b6f47; color: #8b6f47; }
 
-/* ========== EDIT ========== */
+/* ===== EDIT ===== */
 .add-row { display: flex; gap: 8px; margin-bottom: 20px; }
 .add-row input {
-  flex: 1; padding: 12px 14px;
-  background: #fff; border: 1.5px solid #e0d5c5;
-  border-radius: 12px; color: #3a2e22; font-size: 14px;
-  font-family: inherit; outline: none;
+  flex: 1; padding: 12px 14px; background: #fff;
+  border: 1.5px solid #e0d5c5; border-radius: 12px;
+  color: #3a2e22; font-size: 14px; font-family: inherit; outline: none;
 }
 .add-row input:focus { border-color: #8b6f47; }
 .add-btn {
@@ -209,23 +195,39 @@ main { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
   font-size: 13px; cursor: pointer; font-family: inherit;
 }
 .add-btn:hover { background: #7a5f3a; }
+.edit-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  color: #a0917e; text-transform: uppercase; margin: 20px 0 10px;
+}
 .edit-list { display: flex; flex-direction: column; gap: 8px; }
 .edit-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 12px 14px; background: #fff;
-  border: 1.5px solid #e0d5c5; border-radius: 12px;
-  cursor: grab; transition: box-shadow 0.15s;
-  user-select: none;
+  display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+  background: #fff; border: 1.5px solid #e0d5c5; border-radius: 12px;
+  transition: opacity 0.2s;
 }
-.edit-item.dragging { opacity: 0.5; box-shadow: 0 4px 16px rgba(100,70,30,0.15); }
-.edit-item.drag-over { border-color: #8b6f47; background: #fdf6ec; }
-.drag-handle { color: #c9b89e; font-size: 16px; cursor: grab; padding: 0 2px; }
-.edit-num { font-size: 12px; color: #a0917e; width: 20px; text-align: center; }
-.edit-text { flex: 1; font-size: 14px; color: #3a2e22; }
+.edit-item.retired-item { background: #faf7f2; border-color: #ede5d8; }
+.edit-item.retired-item .edit-text { color: #a0917e; }
+.edit-num { font-size: 12px; color: #a0917e; width: 18px; text-align: center; flex-shrink: 0; }
+.edit-text { flex: 1; font-size: 13px; color: #3a2e22; }
+.move-btns { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+.move-btn {
+  background: transparent; border: 1px solid #e0d5c5; border-radius: 5px;
+  color: #a0917e; cursor: pointer; font-size: 11px; padding: 2px 6px;
+  line-height: 1; font-family: inherit;
+}
+.move-btn:hover { background: #f5f0e8; border-color: #8b6f47; color: #8b6f47; }
+.move-btn:disabled { opacity: 0.25; cursor: default; }
+.retire-btn {
+  background: transparent; border: 1px solid #e0d5c5; border-radius: 8px;
+  color: #a0917e; cursor: pointer; font-size: 11px; padding: 4px 8px;
+  font-family: inherit; white-space: nowrap; flex-shrink: 0;
+}
+.retire-btn:hover { border-color: #c9a96e; color: #8b6f47; background: #fdf6ec; }
+.retire-btn.active { background: #f5f0e8; color: #8b6f47; border-color: #c9a96e; }
 .delete-btn {
   background: transparent; border: none; color: #c9b89e;
   cursor: pointer; font-size: 14px; padding: 4px 6px;
-  border-radius: 6px; font-family: inherit;
+  border-radius: 6px; font-family: inherit; flex-shrink: 0;
 }
 .delete-btn:hover { color: #c0392b; }
 .empty { color: #a0917e; font-size: 13px; text-align: center; padding: 40px 0; }
@@ -235,7 +237,7 @@ main { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
 </head>
 <body>
 
-<!-- PASSWORD SCREEN -->
+<!-- PASSWORD -->
 <div id="password-screen">
   <div class="pw-box">
     <div class="pw-logo">習慣ログ</div>
@@ -286,19 +288,22 @@ main { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
 
   <!-- EDIT -->
   <div id="view-edit" class="view">
-    <div class="section-label">習慣リストを編集</div>
+    <div class="section-label">習慣を追加</div>
     <div class="add-row">
       <input type="text" id="new-habit-input" placeholder="新しい習慣を入力..." onkeydown="if(event.key==='Enter')addHabit()">
       <button class="add-btn" onclick="addHabit()">追加</button>
     </div>
+    <div class="edit-section-label">習慣リスト</div>
     <div class="edit-list" id="edit-list"></div>
     <div class="empty" id="edit-empty" style="display:none">習慣がありません。上から追加してください。</div>
+    <div class="edit-section-label" id="retired-section-label" style="display:none">終了した習慣</div>
+    <div class="edit-list" id="retired-list"></div>
   </div>
 </main>
 
 <script>
-// ========== PASSWORD ==========
-const PASSWORD = "habit2024"; // ← ここを好きなパスワードに変更してください
+// ===== PASSWORD =====
+const PASSWORD = "habit2024"; // ← ここを変更
 
 function checkPassword() {
   const val = document.getElementById('pw-input').value;
@@ -311,7 +316,6 @@ function checkPassword() {
     document.getElementById('pw-input').value = '';
   }
 }
-
 function checkAuth() {
   if (localStorage.getItem('habit_auth') === 'true') {
     document.getElementById('password-screen').style.display = 'none';
@@ -319,34 +323,70 @@ function checkAuth() {
   }
 }
 
-// ========== DATA ==========
+// ===== DATA =====
+// habits: [{name, retired}]
 const DAYS_JA = ["日","月","火","水","木","金","土"];
-const DEFAULT_HABITS = ["朝の運動","読書","瞑想","日記を書く","水を2L飲む","ストレッチ","英語の勉強","早起き (7時前)","SNSを1時間以内に抑える","感謝を3つ書く"];
+const DEFAULT_HABITS = [
+  {name:"朝の運動",retired:false},{name:"読書",retired:false},{name:"瞑想",retired:false},
+  {name:"日記を書く",retired:false},{name:"水を2L飲む",retired:false},{name:"ストレッチ",retired:false},
+  {name:"英語の勉強",retired:false},{name:"早起き (7時前)",retired:false},
+  {name:"SNSを1時間以内に抑える",retired:false},{name:"感謝を3つ書く",retired:false}
+];
 
 let habits = [];
-let records = {};
-let memos = {};
+let records = {}; // {dateKey: [habitName,...]}
+let memos = {};   // {dateKey: string}
 let historyDays = 30;
+let expandedCards = new Set();
 
 function loadData() {
-  habits = JSON.parse(localStorage.getItem('habits') || 'null') || DEFAULT_HABITS;
+  const raw = localStorage.getItem('habits');
+  if (raw) {
+    const parsed = JSON.parse(raw);
+    // 旧形式(string[])を新形式に変換
+    if (parsed.length > 0 && typeof parsed[0] === 'string') {
+      habits = parsed.map(n => ({name: n, retired: false}));
+    } else {
+      habits = parsed;
+    }
+  } else {
+    habits = DEFAULT_HABITS;
+  }
   records = JSON.parse(localStorage.getItem('records') || '{}');
-  memos = JSON.parse(localStorage.getItem('memos') || '{}');
+  memos   = JSON.parse(localStorage.getItem('memos')   || '{}');
 }
 
 function save() {
-  localStorage.setItem('habits', JSON.stringify(habits));
+  localStorage.setItem('habits',  JSON.stringify(habits));
   localStorage.setItem('records', JSON.stringify(records));
-  localStorage.setItem('memos', JSON.stringify(memos));
+  localStorage.setItem('memos',   JSON.stringify(memos));
 }
 
 function toDateKey(date) {
-  const y = date.getFullYear();
-  const m = String(date.getMonth()+1).padStart(2,'0');
-  const d = String(date.getDate()).padStart(2,'0');
-  return `${y}-${m}-${d}`;
+  return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
 }
 function getTodayKey() { return toDateKey(new Date()); }
+
+function activeHabits()  { return habits.filter(h => !h.retired); }
+function retiredHabits() { return habits.filter(h =>  h.retired); }
+
+// その日に「存在していた」習慣（記録があるものも含む全習慣）
+function habitsForDate(dateKey) {
+  const recorded = new Set(records[dateKey] || []);
+  // 現在の全習慣 + 記録にあるが今はない習慣名
+  const allNames = new Set(habits.map(h => h.name));
+  const extra = [...recorded].filter(n => !allNames.has(n));
+  return [
+    ...habits,
+    ...extra.map(n => ({name: n, retired: true}))
+  ];
+}
+
+function getDoneCount(dateKey) {
+  const done = new Set(records[dateKey] || []);
+  // アクティブな習慣のみカウント（終了習慣は除外）
+  return habits.filter(h => !h.retired && done.has(h.name)).length;
+}
 
 function getPastDays(count) {
   const days = [];
@@ -355,93 +395,84 @@ function getPastDays(count) {
   }
   return days;
 }
-
 function groupByMonth(dates) {
-  const groups = []; let current = null;
-  for (const date of dates) {
-    const label = `${date.getFullYear()}年${date.getMonth()+1}月`;
-    if (!current || current.label !== label) { current = { label, dates: [] }; groups.push(current); }
-    current.dates.push(date);
+  const groups = []; let cur = null;
+  for (const d of dates) {
+    const label = `${d.getFullYear()}年${d.getMonth()+1}月`;
+    if (!cur || cur.label !== label) { cur = {label, dates:[]}; groups.push(cur); }
+    cur.dates.push(d);
   }
   return groups;
 }
 
-function getDoneCount(dateKey) {
-  const done = new Set(records[dateKey] || []);
-  return habits.filter(h => done.has(h)).length;
-}
-
-// ========== VIEWS ==========
+// ===== VIEWS =====
 function switchView(v) {
   document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('view-' + v).classList.add('active');
-  const idx = ['today','history','edit'].indexOf(v);
-  document.querySelectorAll('.nav-btn')[idx].classList.add('active');
-  if (v === 'history') renderHistory();
-  if (v === 'edit') renderEdit();
-  if (v === 'today') renderToday();
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.nav-btn')[['today','history','edit'].indexOf(v)].classList.add('active');
+  if (v==='history') renderHistory();
+  if (v==='edit')    renderEdit();
+  if (v==='today')   renderToday();
 }
 
 function renderHeader() {
-  const todayKey = getTodayKey();
-  const todayDone = new Set(records[todayKey] || []);
-  document.getElementById('score-big').textContent = todayDone.size;
-  document.getElementById('score-of').textContent = '/ ' + habits.length;
-  const now = new Date();
-  document.getElementById('subtitle').textContent = now.toLocaleDateString('ja-JP', {year:'numeric',month:'long',day:'numeric',weekday:'short'});
+  const tk = getTodayKey();
+  const done = new Set(records[tk]||[]);
+  const activeCount = activeHabits().filter(h => done.has(h.name)).length;
+  document.getElementById('score-big').textContent = activeCount;
+  document.getElementById('score-of').textContent  = '/ ' + activeHabits().length;
+  document.getElementById('subtitle').textContent  = new Date().toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'});
 }
 
+// ===== TODAY =====
 function renderToday() {
-  const todayKey = getTodayKey();
-  const todayDone = new Set(records[todayKey] || []);
+  const tk = getTodayKey();
+  const done = new Set(records[tk]||[]);
   const grid = document.getElementById('habit-grid');
   grid.innerHTML = '';
-  document.getElementById('today-empty').style.display = habits.length === 0 ? 'block' : 'none';
-  habits.forEach(habit => {
-    const done = todayDone.has(habit);
+  const active = activeHabits();
+  document.getElementById('today-empty').style.display = active.length===0 ? 'block' : 'none';
+  active.forEach(h => {
+    const isDone = done.has(h.name);
     const btn = document.createElement('button');
-    btn.className = 'habit-card' + (done ? ' done' : '');
-    btn.innerHTML = `<span class="card-check">${done ? '✓' : ''}</span><span>${habit}</span>`;
-    btn.onclick = () => toggleHabit(habit);
+    btn.className = 'habit-card'+(isDone?' done':'');
+    btn.innerHTML = `<span class="card-check">${isDone?'✓':''}</span><span>${h.name}</span>`;
+    btn.onclick = () => toggleHabitToday(h.name);
     grid.appendChild(btn);
   });
-  const summary = document.getElementById('today-summary');
-  if (todayDone.size > 0) {
-    summary.style.display = 'block';
-    summary.innerHTML = `今日は <strong>${todayDone.size}個</strong> の習慣を達成 🎉`;
-  } else {
-    summary.style.display = 'none';
-  }
-  // memo
-  const ta = document.getElementById('memo-textarea');
-  ta.value = memos[todayKey] || '';
+  const sum = document.getElementById('today-summary');
+  const doneActive = active.filter(h => done.has(h.name)).length;
+  if (doneActive > 0) {
+    sum.style.display = 'block';
+    sum.innerHTML = `今日は <strong>${doneActive}個</strong> の習慣を達成 🎉`;
+  } else { sum.style.display = 'none'; }
+  document.getElementById('memo-textarea').value = memos[tk]||'';
   document.getElementById('memo-saved').textContent = '';
   renderHeader();
 }
 
-function toggleHabit(habit) {
-  const todayKey = getTodayKey();
-  const daySet = new Set(records[todayKey] || []);
-  if (daySet.has(habit)) daySet.delete(habit); else daySet.add(habit);
-  records[todayKey] = Array.from(daySet);
-  save(); renderToday();
+function toggleHabitToday(name) {
+  const tk = getTodayKey();
+  const s = new Set(records[tk]||[]);
+  s.has(name) ? s.delete(name) : s.add(name);
+  records[tk] = [...s]; save(); renderToday();
 }
 
 let memoTimer = null;
 function saveMemo() {
   clearTimeout(memoTimer);
   memoTimer = setTimeout(() => {
-    const todayKey = getTodayKey();
-    memos[todayKey] = document.getElementById('memo-textarea').value;
+    memos[getTodayKey()] = document.getElementById('memo-textarea').value;
     save();
     document.getElementById('memo-saved').textContent = '保存しました';
-    setTimeout(() => { document.getElementById('memo-saved').textContent = ''; }, 2000);
+    setTimeout(()=>{ document.getElementById('memo-saved').textContent=''; }, 2000);
   }, 800);
 }
 
+// ===== HISTORY =====
 function renderHistory() {
-  const todayKey = getTodayKey();
+  const tk = getTodayKey();
   const container = document.getElementById('history-container');
   container.innerHTML = '';
   groupByMonth(getPastDays(historyDays)).forEach(group => {
@@ -452,31 +483,8 @@ function renderHistory() {
     listEl.className = 'history-list';
     group.dates.forEach(date => {
       const key = toDateKey(date);
-      const count = getDoneCount(key);
-      const total = habits.length;
-      const pct = total > 0 ? (count / total) * 100 : 0;
-      const isToday = key === todayKey;
-      const dayDone = new Set(records[key] || []);
-      const barColor = pct >= 80 ? '#a8c5a0' : pct >= 40 ? '#c9a96e' : pct > 0 ? '#dfc49a' : 'transparent';
-      const doneTags = habits.filter(h => dayDone.has(h)).map(h => `<span class="history-tag">${h}</span>`).join('');
-      const memo = memos[key] ? `<div class="history-memo">${memos[key].replace(/\n/g,'<br>')}</div>` : '';
-      const card = document.createElement('div');
-      card.className = 'history-card' + (isToday ? ' today' : '');
-      card.innerHTML = `
-        <div class="history-top">
-          <div class="history-date-block">
-            <span class="history-day">${DAYS_JA[date.getDay()]}</span>
-            <span class="history-date">${date.getMonth()+1}/${date.getDate()}${isToday ? '<span class="today-badge">今日</span>' : ''}</span>
-          </div>
-          <div class="history-count-block">
-            <span class="history-count-num">${count}</span>
-            <span class="history-count-unit">個</span>
-          </div>
-        </div>
-        ${total > 0 ? `<div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>` : ''}
-        ${count > 0 ? `<div class="history-tags">${doneTags}</div>` : ''}
-        ${memo}
-      `;
+      const isToday = key === tk;
+      const card = buildHistoryCard(date, key, isToday);
       listEl.appendChild(card);
     });
     groupEl.appendChild(listEl);
@@ -484,88 +492,182 @@ function renderHistory() {
   });
 }
 
+function buildHistoryCard(date, key, isToday) {
+  const count = getDoneCount(key);
+  const total = activeHabits().length;
+  const pct   = total > 0 ? (count/total)*100 : 0;
+  const barColor = pct>=80 ? '#a8c5a0' : pct>=40 ? '#c9a96e' : pct>0 ? '#dfc49a' : 'transparent';
+  const isExpanded = expandedCards.has(key);
+  const memo = memos[key]||'';
+
+  const card = document.createElement('div');
+  card.className = 'history-card'+(isToday?' today':'');
+  card.id = 'hcard-'+key;
+
+  // Header (tap to expand)
+  const header = document.createElement('div');
+  header.className = 'history-card-header';
+  header.innerHTML = `
+    <div class="history-date-block">
+      <span class="history-day">${DAYS_JA[date.getDay()]}</span>
+      <span class="history-date">${date.getMonth()+1}/${date.getDate()}${isToday?'<span class="today-badge">今日</span>':''}</span>
+    </div>
+    <div class="history-right">
+      <div class="history-count-block">
+        <span class="history-count-num">${count}</span>
+        <span class="history-count-unit">個</span>
+      </div>
+      <span class="expand-arrow${isExpanded?' open':''}">▼</span>
+    </div>
+  `;
+  header.onclick = () => toggleHistoryCard(key);
+  card.appendChild(header);
+
+  // Bar
+  const barWrap = document.createElement('div');
+  barWrap.className = 'bar-bg';
+  barWrap.innerHTML = `<div class="bar-fill" style="width:${pct}%;background:${barColor}"></div>`;
+  card.appendChild(barWrap);
+
+  // Body
+  const body = document.createElement('div');
+  body.className = 'history-body'+(isExpanded?' open':'');
+  body.id = 'hbody-'+key;
+
+  // Habit checklist
+  const habitList = document.createElement('div');
+  habitList.className = 'history-habit-list';
+  const done = new Set(records[key]||[]);
+  const dayHabits = habitsForDate(key);
+  dayHabits.forEach(h => {
+    const isDone = done.has(h.name);
+    const item = document.createElement('div');
+    item.className = 'history-habit-item'+(isDone?' done':'')+(h.retired?' retired':'');
+    item.innerHTML = `
+      <span class="h-check">${isDone?'✓':''}</span>
+      <span class="h-name">${h.name}${h.retired?'<span class="retired-tag">終了</span>':''}</span>
+    `;
+    item.onclick = () => toggleHistoryHabit(key, h.name);
+    habitList.appendChild(item);
+  });
+  body.appendChild(habitList);
+
+  // Memo in history
+  if (memo) {
+    const memoArea = document.createElement('div');
+    memoArea.className = 'history-memo-area';
+    memoArea.innerHTML = `<div class="history-memo-box">${memo.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}</div>`;
+    body.appendChild(memoArea);
+  }
+  card.appendChild(body);
+  return card;
+}
+
+function toggleHistoryCard(key) {
+  if (expandedCards.has(key)) {
+    expandedCards.delete(key);
+  } else {
+    expandedCards.add(key);
+  }
+  // re-render just that card
+  const old = document.getElementById('hcard-'+key);
+  if (!old) return;
+  const date = new Date(key+'T00:00:00');
+  const isToday = key === getTodayKey();
+  const newCard = buildHistoryCard(date, key, isToday);
+  old.replaceWith(newCard);
+}
+
+function toggleHistoryHabit(dateKey, name) {
+  const s = new Set(records[dateKey]||[]);
+  s.has(name) ? s.delete(name) : s.add(name);
+  records[dateKey] = [...s]; save();
+  // update card
+  const date = new Date(dateKey+'T00:00:00');
+  const isToday = dateKey === getTodayKey();
+  const old = document.getElementById('hcard-'+dateKey);
+  if (old) old.replaceWith(buildHistoryCard(date, dateKey, isToday));
+  renderHeader();
+}
+
 function loadMore() { historyDays += 30; renderHistory(); }
 
-// ========== EDIT + DRAG ==========
-let dragSrc = null;
-
+// ===== EDIT =====
 function renderEdit() {
-  const list = document.getElementById('edit-list');
-  list.innerHTML = '';
-  document.getElementById('edit-empty').style.display = habits.length === 0 ? 'block' : 'none';
-  habits.forEach((h, i) => {
+  const list     = document.getElementById('edit-list');
+  const retList  = document.getElementById('retired-list');
+  const retLabel = document.getElementById('retired-section-label');
+  list.innerHTML = ''; retList.innerHTML = '';
+
+  const active  = habits.filter(h => !h.retired);
+  const retired = habits.filter(h =>  h.retired);
+
+  document.getElementById('edit-empty').style.display = active.length===0 ? 'block' : 'none';
+  retLabel.style.display = retired.length > 0 ? 'block' : 'none';
+
+  active.forEach((h, localIdx) => {
+    const globalIdx = habits.indexOf(h);
     const item = document.createElement('div');
     item.className = 'edit-item';
-    item.draggable = true;
-    item.dataset.index = i;
     item.innerHTML = `
-      <span class="drag-handle">⠿</span>
-      <span class="edit-num">${i+1}</span>
-      <span class="edit-text">${h}</span>
-      <button class="delete-btn" onclick="removeHabit(${i})">✕</button>
+      <span class="edit-num">${localIdx+1}</span>
+      <span class="edit-text">${h.name}</span>
+      <div class="move-btns">
+        <button class="move-btn" onclick="moveHabit(${globalIdx},-1)" ${localIdx===0?'disabled':''}>▲</button>
+        <button class="move-btn" onclick="moveHabit(${globalIdx}, 1)" ${localIdx===active.length-1?'disabled':''}>▼</button>
+      </div>
+      <button class="retire-btn" onclick="toggleRetire(${globalIdx})">終了</button>
+      <button class="delete-btn" onclick="removeHabit(${globalIdx})">✕</button>
     `;
-    item.addEventListener('dragstart', e => {
-      dragSrc = i;
-      setTimeout(() => item.classList.add('dragging'), 0);
-    });
-    item.addEventListener('dragend', () => {
-      item.classList.remove('dragging');
-      document.querySelectorAll('.edit-item').forEach(el => el.classList.remove('drag-over'));
-    });
-    item.addEventListener('dragover', e => {
-      e.preventDefault();
-      document.querySelectorAll('.edit-item').forEach(el => el.classList.remove('drag-over'));
-      item.classList.add('drag-over');
-    });
-    item.addEventListener('drop', e => {
-      e.preventDefault();
-      const targetIdx = parseInt(item.dataset.index);
-      if (dragSrc !== null && dragSrc !== targetIdx) {
-        const moved = habits.splice(dragSrc, 1)[0];
-        habits.splice(targetIdx, 0, moved);
-        save(); renderEdit();
-      }
-    });
-    // touch support
-    let touchStartY = 0, touchItem = null;
-    item.addEventListener('touchstart', e => {
-      touchStartY = e.touches[0].clientY;
-      touchItem = i;
-    }, {passive:true});
-    item.addEventListener('touchend', e => {
-      const dy = e.changedTouches[0].clientY - touchStartY;
-      if (Math.abs(dy) > 40) {
-        const dir = dy > 0 ? 1 : -1;
-        const newIdx = Math.max(0, Math.min(habits.length-1, touchItem + dir));
-        if (newIdx !== touchItem) {
-          const moved = habits.splice(touchItem, 1)[0];
-          habits.splice(newIdx, 0, moved);
-          save(); renderEdit();
-        }
-      }
-    }, {passive:true});
     list.appendChild(item);
   });
+
+  retired.forEach(h => {
+    const globalIdx = habits.indexOf(h);
+    const item = document.createElement('div');
+    item.className = 'edit-item retired-item';
+    item.innerHTML = `
+      <span class="edit-num">—</span>
+      <span class="edit-text">${h.name}</span>
+      <button class="retire-btn active" onclick="toggleRetire(${globalIdx})">再開</button>
+      <button class="delete-btn" onclick="removeHabit(${globalIdx})">✕</button>
+    `;
+    retList.appendChild(item);
+  });
+}
+
+function moveHabit(globalIdx, dir) {
+  // アクティブな習慣の中だけ移動
+  const active = habits.filter(h => !h.retired);
+  const localIdx = active.indexOf(habits[globalIdx]);
+  const newLocalIdx = localIdx + dir;
+  if (newLocalIdx < 0 || newLocalIdx >= active.length) return;
+  // グローバルインデックスで入れ替え
+  const targetGlobal = habits.indexOf(active[newLocalIdx]);
+  [habits[globalIdx], habits[targetGlobal]] = [habits[targetGlobal], habits[globalIdx]];
+  save(); renderEdit();
+}
+
+function toggleRetire(globalIdx) {
+  habits[globalIdx].retired = !habits[globalIdx].retired;
+  save(); renderEdit(); renderHeader(); renderToday();
 }
 
 function addHabit() {
   const input = document.getElementById('new-habit-input');
   const t = input.value.trim();
-  if (t && !habits.includes(t)) {
-    habits.push(t); save(); input.value = '';
-    renderEdit(); renderHeader();
+  if (t && !habits.find(h => h.name===t)) {
+    habits.push({name:t, retired:false});
+    save(); input.value=''; renderEdit(); renderHeader();
   }
 }
 
 function removeHabit(i) {
-  habits.splice(i, 1); save(); renderEdit(); renderHeader();
+  habits.splice(i,1); save(); renderEdit(); renderHeader();
 }
 
-// ========== INIT ==========
-function init() {
-  loadData(); renderHeader(); renderToday();
-}
-
+// ===== INIT =====
+function init() { loadData(); renderHeader(); renderToday(); }
 checkAuth();
 </script>
 </body>
